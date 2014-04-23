@@ -1,10 +1,13 @@
+// 1) Long HTML string
+// 2) condense chosen2 -- remove option
+// 3) Default Market Name
 
 
 jQuery(document).ready(function($){
   
     $('.my-form').on('click', '.remove-market', function(){
-    $(this).parent().css( 'background-color', '#FF6C6C' );
-    $(this).parent().fadeOut("f", function() {
+    $(this).parents('.market').css( 'background-color', '#FF6C6C' );
+    $(this).parents('.market').fadeOut("f", function() {
         $(this).remove();
     });
     return false;
@@ -12,24 +15,24 @@ jQuery(document).ready(function($){
 
     $('.my-form .add-market').click(function(){
 
-    var n = $('.text-market').length - 1 + 1;
+    var n = $('.market').length - 1 + 1;
 
-    var market_html = $('<div class="text-market row"> <div class="large-12 columns">\
+    var market_html = $('<div class="market row"> <div class="large-12 columns">\
                                         <label for="market' + n + '">Market Name\
                                                 <input type="text" name="markets[]" value="" id="market' + n + '" />\
                                         </label>\
-                                        <label>States\
-                                                <textarea id="market-state' + n + '" placeholder="small-12.columns"></textarea>\
-                                        </label>\
-                                        <select multiple class="chosen-select">\
+                                        <select multiple data-placeholder="Choose states..." class="chosen-select">\
                                                 <option value="AL">Alabama</option><option value="Am">Amalapuram</option><option value="An">Anakapalli</option><option value="Ak">Akkayapalem</option><option value="WY">Wyoming</option>\
                                         </select>\
-                                        <a href="#" class="remove-market">Remove</a>\
+                                         <label>Code\
+                                                <textarea id="market-state' + n + '" placeholder="Insert Code"></textarea>\
+                                        </label>\
+                                        <a href="#" class="button tiny alert remove-market">Remove</a>\
                                 </div></div>');
    
     market_html.hide();
 
-    $('.my-form div.text-market:last').before(market_html);
+    $('.my-form div.market:last').before(market_html);
 
     market_html.fadeIn('slow');
    

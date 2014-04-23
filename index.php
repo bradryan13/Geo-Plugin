@@ -23,7 +23,7 @@
 
     <form role="form" method="post">
 
-        <div class="text-market row">
+        <div class="market row">
 
             <div class="large-12 columns">
 
@@ -36,7 +36,7 @@
             <div class="large-12 columns">
 
               <label>Textarea Label
-                <textarea placeholder="small-12.columns"></textarea>
+                <textarea placeholder="Insert Code"></textarea>
               </label>
             
             </div>
