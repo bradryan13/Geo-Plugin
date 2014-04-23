@@ -12,7 +12,6 @@ jQuery(document).ready(function($){
 
     $('.my-form .add-market').click(function(){
 
-
     var n = $('.text-market').length - 1 + 1;
 
     var market_html = $('<div class="text-market row"> <div class="large-12 columns">\
@@ -40,12 +39,10 @@ jQuery(document).ready(function($){
 });
 
 
-  // cache selects for use later
-    var selects = $('.chosen-select');
+$('.my-form .add-market').click(function(){
 
-    // whenever the selection changes, either disable or enable the 
-    // option in the other selects
-    selects.chosen().change(function() {
+        var selects = $('.chosen-select');
+
         var selected = [];
 
         // add all selected options to the array in the first loop
@@ -68,4 +65,36 @@ jQuery(document).ready(function($){
     });
 
 
+    $('.my-form .add-market').click(function(){
+
+    var selects = $('.chosen-select');
+
+    // whenever the selection changes, either disable or enable the 
+    // option in the other selects
+    $(selects.chosen).click(function(){
+
+        var selected = [];
+
+        // add all selected options to the array in the first loop
+        selects.find("option").each(function() {
+            if (this.selected) {
+                selected[this.value] = this;
+            }
+        })
+
+        // then either disabled or enable them in the second loop:
+        .each(function() {
+
+            // if the current option is already selected in another select disable it.
+            // otherwise, enable it.
+            this.disabled = selected[this.value] && selected[this.value] !== this;
+        });
+
+        // trigger the change in the "chosen" selects
+        selects.trigger("chosen:updated");
+    });
+
 });
+
+});
+
