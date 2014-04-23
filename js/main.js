@@ -4,7 +4,7 @@
 
 
 jQuery(document).ready(function($){
-  
+
     $('.my-form').on('click', '.remove-market', function(){
     $(this).parents('.market').css( 'background-color', '#FF6C6C' );
     $(this).parents('.market').fadeOut("f", function() {
@@ -22,7 +22,7 @@ jQuery(document).ready(function($){
                                                 <input type="text" name="markets[]" value="" id="market' + n + '" />\
                                         </label>\
                                         <select multiple data-placeholder="Choose states..." class="chosen-select">\
-                                                <option value="AL">Alabama</option><option value="Am">Amalapuram</option><option value="An">Anakapalli</option><option value="Ak">Akkayapalem</option><option value="WY">Wyoming</option>\
+                                                <option value="AL">Alabama</option><option value="Am">Ohio</option><option value="An">New York</option><option value="Ak">Kentucky</option><option value="WY">Wyoming</option>\
                                         </select>\
                                          <label>Code\
                                                 <textarea id="market-state' + n + '" placeholder="Insert Code"></textarea>\
@@ -36,9 +36,15 @@ jQuery(document).ready(function($){
 
     market_html.fadeIn('slow');
    
-     $(".chosen-select").chosen()
+    //init Chosen
+    
+    $(".chosen-select").chosen()
+
 
     return false;
+
+
+
 });
 
 
